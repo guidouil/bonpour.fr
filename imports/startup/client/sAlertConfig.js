@@ -4,4 +4,5 @@ sAlert.config({
   effect: 'stackslide',
   onRouteClose: false,
   stack: false,
+  timeout: 2500,
 });
