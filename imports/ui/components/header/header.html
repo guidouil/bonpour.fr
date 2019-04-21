@@ -1,0 +1,22 @@
+<template name="header">
+  <div class="ui top fixed huge borderless {{ isDark }} icon menu">
+    <div class="ui container">
+      <div class="left menu">
+        <a class="header item" href="/">
+          <i class="home large icon"></i>
+          {{#unless isMobile}}
+          &nbsp;&nbsp;bonpour.fr
+          {{/unless}}
+        </a>
+      </div>
+      <div class="right menu">
+        <a class="item" id="darkMode">
+          <i class="{{ darkModeIcon }} icon"></i>
+        </a>
+        <a class="item" href="/n">
+          <i class="plus large icon"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</template>

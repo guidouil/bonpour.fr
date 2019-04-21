@@ -1,0 +1,10 @@
+<template name="AppBody">
+  {{> header}}
+  <div class="Site {{ isDark }}">
+    <div class="ui container mainContainer">
+      {{> Template.dynamic template=main}}
+    </div>
+  </div>
+  {{> footer}}
+  {{> sAlert}}
+</template>

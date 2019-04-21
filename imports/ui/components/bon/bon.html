@@ -1,0 +1,90 @@
+<template name="bon">
+  <div class="ui basic {{ isDark }} segment">
+    <div class="ui centered raised {{ color }} {{ isDark }} card" id="bon">
+      <div class="image">
+        <a class="ui  {{ isDark }} {{ color }} large right ribbon label">{{
+          label
+        }}</a>
+        {{#unless isDark}}
+        <img src="/img/bonpour_n.svg" alt="bon pour" />
+        {{else}}
+        <img src="/img/bonpour_b.svg" alt="bon pour" />
+        {{/unless}}
+      </div>
+      <div class="ui huge {{ isDark }} statistic">
+        <div class="value">&nbsp;{{ bon.quantity }}&nbsp;</div>
+        <div class="label unityLabel">&nbsp;{{ bon.unity }}&nbsp;</div>
+      </div>
+
+      <div class="content hidden" id="bonInfo">
+        <div class="ui divided relaxed list">
+          <div class="item">
+            <i class="yellow clock icon"></i>
+            <div class="middle aligned content">
+              CRÉÉ LE {{ toLocaleDate bon.createdAt }}
+            </div>
+          </div>
+          {{#if bon.updatedAt}}
+          <div class="item">
+            <i class="grey clock icon"></i>
+            <div class="middle aligned content">
+              MÀJ LE {{ toLocaleDate bon.updatedAt }}
+            </div>
+          </div>
+          {{/if}}
+
+          {{#if bon.donorStatus}}
+          <div class="item">
+            <i class="middle aligned {{statusIcon bon.donorStatus}} icon"></i>
+            <div class="middle aligned content">
+              {{statusText bon.donorStatus 'DONNEUR·SE'}}
+            </div>
+          </div>
+          {{/if}}
+
+          {{#if bon.receiverStatus}}
+          <div class="item">
+            <i
+              class="middle aligned {{statusIcon bon.receiverStatus}} icon"
+            ></i>
+            <div class="middle aligned content">
+              {{statusText bon.receiverStatus 'RECEVEUR·SE'}}
+            </div>
+          </div>
+          {{/if}}
+
+          {{#if bon.codeCreated}}
+          <div class="item">
+            <i class="blue sync icon"></i>
+            <div class="middle aligned content">
+              CODE DE VALIDATION CRÉÉ
+            </div>
+          </div>
+          {{/if}}
+
+          {{#if bon.done}}
+          <div class="item">
+            <i class="green flag checkered icon"></i>
+            <div class="middle aligned content">
+              ÉCHANGE VALIDÉ
+            </div>
+          </div>
+          {{/if}}
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui labels centerThis">
+          <span class="ui yellow label">Nouveau</span>
+          <span class="ui red label">Refusé</span>
+          <span class="ui teal label">Accepté</span>
+          <span class="ui blue label">En cours</span>
+          <span class="ui green label">Terminé</span>
+        </div>
+      </div>
+
+      <div class="ui {{ isDark }} bottom attached button" id="infoBtn">
+        <i class="info icon"></i>
+        Détails
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,105 @@
+<template name="receiver">
+  {{> bon values=bonData label="RECEVEUR·SE"}}
+  <div class="ui padded center aligned {{ isDark }} raised segment">
+    {{#unless bonData.receiverStatus}}
+    <button
+      class="ui large receiverAction receiverStatus red button {{ isDark }}"
+      id="refused"
+    >
+      REFUSER CE BON
+    </button>
+    <button
+      class="ui large receiverAction receiverStatus green button {{ isDark }}"
+      id="accepted"
+    >
+      ACCEPTER CE BON
+    </button>
+    {{else}}
+    {{#unless bonData.codeCreated}}
+    <div class="ui divided relaxed large list">
+      {{#if bonData.donorStatus}}
+      <div class="item">
+        {{#if eq bonData.donorStatus 'refused'}}
+        <div class="right floated content">
+          <button class="ui {{ isDark }} red compact small icon button">
+            <i class="trash icon deleteBon"></i>
+          </button>
+        </div>
+        {{/if}}
+        <i class="{{statusIcon bonData.donorStatus}} icon"></i>
+        <div class="content">
+          {{statusText bonData.donorStatus 'DONNEUR·SE'}}
+        </div>
+      </div>
+      {{/if}}
+      <div class="item">
+        <i class="{{statusIcon bonData.receiverStatus}} icon"></i>
+        <div class="content">
+          {{statusText bonData.receiverStatus 'RECEVEUR·SE (VOUS)'}}
+        </div>
+      </div>
+    </div>
+    {{#unless eq bonData.donorStatus 'refused'}}
+    <button
+      class="ui large primary button {{ isDark }} receiverAction"
+      id="askCode"
+    >
+      FAIRE VALOIR CE BON
+    </button>
+    {{/unless}}
+    {{else}}
+    {{#unless bonData.done}}
+    <form class="ui big {{ isDark }} form" id="codeForm">
+      <div class="field">
+        <label for="code">CODE DE VALIDATION</label>
+        <input
+          class="centerThis"
+          type="number"
+          min="0"
+          name="code"
+          id="code"
+          placeholder="Code transmis par le donneur·se"
+          autocomplete="off"
+        />
+      </div>
+    </form>
+    {{else}}
+    <h3 class="ui icon header">
+      <i class="flag checkered icon"></i>
+      <div class="content">
+        L'ÉCHANGE EST TERMINÉ
+      </div>
+    </h3>
+    <div class="ui divider"></div>
+    <button class="ui {{ isDark }} red icon button deleteBon">
+      <i class="trash icon"></i>
+    </button>
+    {{/unless}}
+    {{/unless}}
+
+    <div class="ui basic modal" id="askCodeModal">
+      <div class="ui icon header">
+        <i class="question icon"></i>
+        ÊTES VOUS EN CONTACT AVEC LE DONNEUR·SE ?
+      </div>
+      <div class="content centerThis">
+        <p>
+          VOUS DEVREZ TAPER UN CODE TRANSMIS PAR LE DONNEUR·SE À L'ÉTAPE
+          SUIVANTE.
+        </p>
+      </div>
+      <div class="actions centerThis">
+        <div class="ui red basic cancel inverted large button">
+          <i class="undo icon"></i>
+          NON
+        </div>
+        <div class="ui green ok inverted large button">
+          <i class="checkmark icon"></i>
+          OUI
+        </div>
+      </div>
+    </div>
+    {{/unless}}
+  </div>
+  {{> deleteModal}}
+</template>

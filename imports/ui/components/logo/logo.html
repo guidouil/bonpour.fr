@@ -1,0 +1,19 @@
+<template name="logo">
+  {{#if url}}
+  <a href="{{ url }}" target="{{ target }}">
+    <img
+      class="ui {{ classNames }} image"
+      src="{{ src }}"
+      alt="Bon Pour"
+      id="logo"
+    />
+  </a>
+  {{else}}
+  <img
+    class="ui {{ classNames }} image"
+    src="{{ src }}"
+    alt="Bon Pour"
+    id="logo"
+  />
+  {{/if}}
+</template>

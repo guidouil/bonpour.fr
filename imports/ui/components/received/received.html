@@ -1,0 +1,10 @@
+<template name="received">
+  {{#unless receivers}}
+  <h4 class="ui {{ isDark }} header">
+    Vous n'avez pas de bon dont vous êtes le receveur·se pour l'instant.
+    <a href="/n">Créez un bon.</a>
+  </h4>
+  {{else}}
+  {{> table rows=receivers type='r'}}
+  {{/unless}}
+</template>

@@ -1,0 +1,44 @@
+<template name="table">
+  <div class="bonsTable">
+    <table
+      class="ui {{ isDark }} selectable unstackable striped very basic table"
+    >
+      <thead>
+        <tr>
+          <th class="center aligned">Quantité</th>
+          <th>Objet</th>
+          <th>Créé le</th>
+          <th>Màj le</th>
+          <th class="center aligned">Donneur·se</th>
+          <th class="center aligned">Receveur·se</th>
+          <th class="center aligned">Terminé</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each rows}}
+        <tr id="{{ _id }}" class="tableRow">
+          <td class="center aligned" data-label="Quantité">{{ quantity }}</td>
+          <td data-label="Objet">{{ unity }}</td>
+          <td data-label="Créé le">{{ toLocaleDate createdAt }}</td>
+          <td data-label="Créé le">{{ toLocaleDate updatedAt }}</td>
+          <td class="center aligned">
+            <i class="{{statusIcon donorStatus}} icon"></i>
+          </td>
+          <td class="center aligned">
+            <i class="{{statusIcon receiverStatus}} icon"></i>
+          </td>
+          <td class="center aligned">
+            {{#if codeCreated}}
+            {{#unless done}}
+            <i class="grey clock icon"></i>
+            {{else}}
+            <i class="green flag checkered icon"></i>
+            {{/unless}}
+            {{/if}}
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</template>

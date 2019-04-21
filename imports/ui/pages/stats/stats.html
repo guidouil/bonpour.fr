@@ -1,0 +1,65 @@
+<template name="stats">
+  <div class="ui basic {{ isDark }} segment">
+    <h1 class="ui horizontal divider header">COMPTEURS</h1>
+    <div class="ui one large {{ isDark }} statistics">
+      <div class="yellow statistic">
+        <div class="value">
+          {{or counters.created 0}}
+        </div>
+        <div class="label">
+          bons créés
+        </div>
+      </div>
+    </div>
+    <div class="ui two {{ isDark }} statistics">
+      <div class="teal statistic">
+        <div class="value">
+          {{or counters.accepted 0}}
+        </div>
+        <div class="label">
+          acceptations
+        </div>
+      </div>
+      <div class="red statistic">
+        <div class="value">
+          {{or counters.refused 0}}
+        </div>
+        <div class="label">
+          refus
+        </div>
+      </div>
+      <div class="blue statistic">
+        <div class="value">
+          {{or counters.coded 0}}
+        </div>
+        <div class="label">
+          codes générés
+        </div>
+      </div>
+      <div class="grey statistic">
+        <div class="value">
+          {{or counters.recoded 0}}
+        </div>
+        <div class="label">
+          codes regénérés
+        </div>
+      </div>
+      <div class="green statistic">
+        <div class="value">
+          {{or counters.finished 0}}
+        </div>
+        <div class="label">
+          échanges terminés
+        </div>
+      </div>
+      <div class="violet statistic">
+        <div class="value">
+          {{or counters.deleted 0}}
+        </div>
+        <div class="label">
+          bons effacés
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

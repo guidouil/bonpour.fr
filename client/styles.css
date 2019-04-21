@@ -1,0 +1,38 @@
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.mainContainer {
+  flex: 1;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+}
+.createdRow {
+  cursor: pointer;
+}
+.donorAction,
+.receiverAction {
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+.unityLabel {
+  font-size: 2em !important;
+  line-height: 1.1em !important;
+  margin-left: 7px !important;
+  margin-right: 7px !important;
+}
+.ui.card.inverted,
+.ui.styled.accordion.inverted,
+.Site.inverted {
+  background-color: #1b1c1d !important;
+}
+.centerThis {
+  text-align: center !important;
+}
+.bonsTable {
+  overflow-x: scroll !important;
+}
+.hidden {
+  display: none;
+}

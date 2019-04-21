@@ -1,0 +1,101 @@
+<template name="creator">
+  {{#if bonData}}
+  {{> bon values=bonData label="CRÉATEUR·SE"}}
+  {{/if}}
+
+  <div class="ui {{ isDark }} segment">
+    {{#unless bonData.done}}
+    <div class="ui large relaxed divided {{ isDark }} list">
+      <div class="item">
+        {{#if bonData.donorStatus}}
+        {{#if eq bonData.donorStatus 'refused'}}
+        <div class="right floated content">
+          <button class="ui {{ isDark }} red compact small icon button">
+            <i class="trash icon deleteBon"></i>
+          </button>
+        </div>
+        {{/if}}
+        <i class="{{statusIcon bonData.donorStatus}} icon"></i>
+        <div class="content">
+          <div class="header">
+            {{statusText bonData.donorStatus 'DONNEUR·SE'}}
+          </div>
+        </div>
+        {{else}}
+        <i class="grey linkify icon"></i>
+        <div class="content">
+          <div class="header">
+            LIEN POUR LE DONNEUR·SE
+          </div>
+        </div>
+        {{/if}}
+      </div>
+
+      <form class="ui {{ isDark }} large form">
+        <div class="field">
+          <div class="ui fluid icon input donorUrlField">
+            <input
+              type="text"
+              value="{{toUrl 'd' bonData.donor}}"
+              id="donorUrlInput"
+              readonly
+            />
+            <i class="copy icon"></i>
+          </div>
+        </div>
+      </form>
+      <br />
+
+      <div class="item">
+        {{#if bonData.receiverStatus}}
+        {{#if eq bonData.receiverStatus 'refused'}}
+        <div class="right floated content">
+          <button class="ui {{ isDark }} red compact small icon button">
+            <i class="trash icon deleteBon"></i>
+          </button>
+        </div>
+        {{/if}}
+        <i class="{{statusIcon bonData.receiverStatus}} icon"></i>
+        <div class="content">
+          <div class="header">
+            {{statusText bonData.receiverStatus 'RECEVEUR·SE'}}
+          </div>
+        </div>
+        {{else}}
+        <i class="grey linkify icon"></i>
+        <div class="content">
+          <div class="header">
+            LIEN POUR LE RECEVEUR·SE
+          </div>
+        </div>
+        {{/if}}
+      </div>
+      <form class="ui {{ isDark }} large form">
+        <div class="field">
+          <div class="ui fluid  icon input receiverUrlField">
+            <input
+              type="text"
+              value="{{toUrl 'r' bonData.receiver}}"
+              id="receiverUrlInput"
+              readonly
+            />
+            <i class="copy icon"></i>
+          </div>
+        </div>
+      </form>
+    </div>
+    {{else}}
+    <h3 class="ui icon center aligned header">
+      <i class="flag checkered icon"></i>
+      <div class="content">
+        L'ÉCHANGE EST TERMINÉ
+      </div>
+    </h3>
+    <div class="ui divider"></div>
+    <button class="ui {{ isDark }} red fluid button deleteBon">
+      EFFACER LE BON
+    </button>
+    {{/unless}}
+  </div>
+  {{> deleteModal}}
+</template>
