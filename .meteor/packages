@@ -27,3 +27,4 @@ frozeman:persistent-minimongo2
 standard-minifier-css
 less
 mquandalle:ismobile
+montiapm:agent
