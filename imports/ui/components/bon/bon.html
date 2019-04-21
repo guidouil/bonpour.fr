@@ -18,12 +18,15 @@
 
       <div class="content hidden" id="bonInfo">
         <div class="ui divided relaxed list">
+          {{#if bon.createdAt}}
           <div class="item">
             <i class="yellow clock icon"></i>
             <div class="middle aligned content">
               CRÉÉ LE {{ toLocaleDate bon.createdAt }}
             </div>
           </div>
+          {{/if}}
+
           {{#if bon.updatedAt}}
           <div class="item">
             <i class="grey clock icon"></i>
