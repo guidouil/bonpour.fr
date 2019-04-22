@@ -52,7 +52,7 @@ Template.creator.events({
     $(event.currentTarget)
       .children('.copy.icon')
       .addClass('green');
-    sAlert.success('LIEN DONNEUR·SE COPIÉ');
+    sAlert.success('Lien donneur·se copié');
     Meteor.setTimeout(() => {
       $(event.currentTarget)
         .children('.copy.icon')
@@ -66,7 +66,7 @@ Template.creator.events({
     $(event.currentTarget)
       .children('.copy.icon')
       .addClass('green');
-    sAlert.success('LIEN RECEVEUR·SE COPIÉ');
+    sAlert.success('Lien receveur·se copié');
     Meteor.setTimeout(() => {
       $(event.currentTarget)
         .children('.copy.icon')
@@ -81,7 +81,7 @@ Template.creator.events({
           Meteor.call('Creator.remove', creator, (error, success) => {
             if (error) sAlert.error(error.message);
             if (success) {
-              sAlert.info('BON EFFACÉ');
+              sAlert.info('Bon effacé');
               Created.remove({ _id: creator });
               FlowRouter.go('/');
             }

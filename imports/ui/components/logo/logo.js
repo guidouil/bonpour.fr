@@ -1,16 +1,8 @@
-import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import sample from 'lodash/sample';
 import { Conf } from '/imports/api/conf/conf';
 
 import './logo.html';
-
-Template.logo.onRendered(function() {
-  const instance = Template.instance();
-  Meteor.setTimeout(() => {
-    instance.$('#logo').transition('tada');
-  }, 500);
-});
 
 Template.logo.helpers({
   classNames() {

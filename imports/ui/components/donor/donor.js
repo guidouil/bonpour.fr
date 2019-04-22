@@ -23,7 +23,7 @@ Template.donor.onCreated(() => {
           delete bon._id;
           Donated.upsert({ _id: donor }, { $set: bon });
         } else {
-          sAlert.warning('CE BON A ÉTÉ EFFACÉ.');
+          sAlert.warning('Ce bon a été effacé.');
           Donated.remove({ _id: donor });
           FlowRouter.go('/');
         }
@@ -46,7 +46,7 @@ Template.donor.events({
     Meteor.call('Donor.status', { donor, status }, (error, success) => {
       if (error) sAlert.error(error.message);
       if (success) {
-        sAlert.info('BON MIS À JOUR.');
+        sAlert.info('Bon mis à jour.');
         if (status === 'refused') {
           Donated.remove({ _id: donor });
           FlowRouter.go('/');
@@ -59,7 +59,7 @@ Template.donor.events({
     Meteor.call('Donor.recode', donor, (error, success) => {
       if (error) sAlert.error(error.message);
       if (success) {
-        sAlert.info('BON MIS À JOUR.');
+        sAlert.info('Bon mis à jour.');
       }
     });
   },
@@ -71,7 +71,7 @@ Template.donor.events({
           Meteor.call('Donor.remove', donor, (error, success) => {
             if (error) sAlert.error(error.message);
             if (success) {
-              sAlert.info('BON EFFACÉ.');
+              sAlert.info('Bon effacé.');
               Donated.remove({ _id: donor });
               FlowRouter.go('/');
             }

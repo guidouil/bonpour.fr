@@ -72,7 +72,7 @@ Template.new.events({
             createdAt: new Date(),
           },
         );
-        sAlert.success('BON CRÉÉ');
+        sAlert.success('Bon créé');
         FlowRouter.go(`/c/${creator}`);
       }
     });

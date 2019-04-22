@@ -1,6 +1,6 @@
 <template name="creator">
   {{#if bonData}}
-  {{> bon values=bonData label="CRÉATEUR·SE"}}
+  {{> bon values=bonData label="Créateur·rice"}}
   {{/if}}
 
   <div class="ui {{ isDark }} segment">
@@ -18,14 +18,14 @@
         <i class="{{statusIcon bonData.donorStatus}} icon"></i>
         <div class="content">
           <div class="header">
-            {{statusText bonData.donorStatus 'DONNEUR·SE'}}
+            {{statusText bonData.donorStatus 'donneur·se'}}
           </div>
         </div>
         {{else}}
         <i class="grey linkify icon"></i>
         <div class="content">
           <div class="header">
-            LIEN POUR LE DONNEUR·SE
+            Lien pour le ou la donneur·se
           </div>
         </div>
         {{/if}}
@@ -58,14 +58,14 @@
         <i class="{{statusIcon bonData.receiverStatus}} icon"></i>
         <div class="content">
           <div class="header">
-            {{statusText bonData.receiverStatus 'RECEVEUR·SE'}}
+            {{statusText bonData.receiverStatus 'receveur·se'}}
           </div>
         </div>
         {{else}}
         <i class="grey linkify icon"></i>
         <div class="content">
           <div class="header">
-            LIEN POUR LE RECEVEUR·SE
+            Lien pour le ou la receveur·se
           </div>
         </div>
         {{/if}}
@@ -86,8 +86,7 @@
     </div>
     <h3 class="ui center aligned header">
       Cliquez sur les champs pour copier les liens et partagez-les avec vos amis
-      en les collants dans votre application de messagerie préférée ou dans un
-      sms.
+      en les collants dans votre messagerie préférée ou dans un sms.
     </h3>
     <h4 class="ui center aligned header">
       Chaque lien est unique et doit être partagé avec une seule personne pour
@@ -97,7 +96,7 @@
     <h3 class="ui icon center aligned header">
       <i class="flag checkered icon"></i>
       <div class="content">
-        L'ÉCHANGE EST TERMINÉ
+        L'échange est terminé
       </div>
     </h3>
     <div class="ui divider"></div>
