@@ -36,3 +36,6 @@
 .hidden {
   display: none;
 }
+.myBons > .title {
+  font-size: 1.4em !important;
+}

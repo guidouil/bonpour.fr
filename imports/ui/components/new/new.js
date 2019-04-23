@@ -47,7 +47,11 @@ Template.new.helpers({
 
 Template.new.events({
   'input #quantity'(event, templateInstance) {
-    const quantity = event.target.value;
+    let quantity = event.target.value;
+    if (quantity <= 0) {
+      sAlert.error('La quantité doit être un entier positif');
+      quantity = 1;
+    }
     templateInstance.quantity.set(quantity);
     Conf.upsert({ _id: 'me' }, { $set: { quantity } });
   },

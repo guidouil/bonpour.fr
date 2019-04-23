@@ -1,5 +1,5 @@
 <template name="donor">
-  {{> bon values=bonData label="Donneur·se"}}
+  {{> bon values=bonData label="Donneur"}}
   <div class="ui {{ isDark }} padded center aligned segment">
     {{#unless bonData.donorStatus}}
     <button class="ui large donorAction red button {{ isDark }}" id="refused">
@@ -17,7 +17,7 @@
       <div class="item">
         <i class="{{statusIcon bonData.donorStatus}} icon"></i>
         <div class="content">
-          {{statusText bonData.donorStatus 'donneur·se (vous)'}}
+          {{statusText bonData.donorStatus 'donneur (vous)'}}
         </div>
       </div>
       {{#if bonData.receiverStatus}}
@@ -31,11 +31,24 @@
         {{/if}}
         <i class="{{statusIcon bonData.receiverStatus}} icon"></i>
         <div class="content">
-          {{statusText bonData.receiverStatus 'receveur·se'}}
+          {{statusText bonData.receiverStatus 'receveur'}}
+        </div>
+      </div>
+      {{else}}
+      <div class="item">
+        <i class="clock icon"></i>
+        <div class="content">
+          En attente de validation du receveur
         </div>
       </div>
       {{/if}}
     </div>
+    {{#if eq  bonData.receiverStatus 'accepted'}}
+    <h3 class="ui header">
+      Maintenant vous devez rencontrer le receveur receveuse pour voir le code
+      de validation apparaitre et lui transmettre
+    </h3>
+    {{/if}}
     {{else}}
     {{#unless bonData.done}}
     <div class="ui {{ isDark }} statistic">
