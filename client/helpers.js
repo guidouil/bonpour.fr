@@ -47,10 +47,10 @@ Template.registerHelper('statusText', (status, actor) => {
   let text = '-----------';
   switch (status) {
     case 'accepted':
-      text = 'Accepté par le ou la ';
+      text = 'Accepté par le ';
       break;
     case 'refused':
-      text = 'Refusé par le ou la ';
+      text = 'Refusé par le ';
       break;
     default:
       break;

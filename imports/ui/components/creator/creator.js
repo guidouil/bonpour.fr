@@ -52,7 +52,7 @@ Template.creator.events({
     $(event.currentTarget)
       .children('.copy.icon')
       .addClass('green');
-    sAlert.success('Lien donneur·se copié');
+    sAlert.success('Lien donneur copié');
     Meteor.setTimeout(() => {
       $(event.currentTarget)
         .children('.copy.icon')
@@ -66,7 +66,7 @@ Template.creator.events({
     $(event.currentTarget)
       .children('.copy.icon')
       .addClass('green');
-    sAlert.success('Lien receveur·se copié');
+    sAlert.success('Lien receveur copié');
     Meteor.setTimeout(() => {
       $(event.currentTarget)
         .children('.copy.icon')

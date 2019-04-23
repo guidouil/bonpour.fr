@@ -1,6 +1,6 @@
 <template name="creator">
   {{#if bonData}}
-  {{> bon values=bonData label="Créateur·rice"}}
+  {{> bon values=bonData label="Créateur"}}
   {{/if}}
 
   <div class="ui {{ isDark }} segment">
@@ -18,14 +18,14 @@
         <i class="{{statusIcon bonData.donorStatus}} icon"></i>
         <div class="content">
           <div class="header">
-            {{statusText bonData.donorStatus 'donneur·se'}}
+            {{statusText bonData.donorStatus 'donneur'}}
           </div>
         </div>
         {{else}}
         <i class="grey linkify icon"></i>
         <div class="content">
           <div class="header">
-            Lien pour le ou la donneur·se
+            Lien pour le donneur
           </div>
         </div>
         {{/if}}
@@ -58,14 +58,14 @@
         <i class="{{statusIcon bonData.receiverStatus}} icon"></i>
         <div class="content">
           <div class="header">
-            {{statusText bonData.receiverStatus 'receveur·se'}}
+            {{statusText bonData.receiverStatus 'receveur'}}
           </div>
         </div>
         {{else}}
         <i class="grey linkify icon"></i>
         <div class="content">
           <div class="header">
-            Lien pour le ou la receveur·se
+            Lien pour le receveur
           </div>
         </div>
         {{/if}}

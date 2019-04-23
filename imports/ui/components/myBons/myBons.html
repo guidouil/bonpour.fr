@@ -1,23 +1,23 @@
 <template name="myBons">
   <h2 class="ui {{ isDark }} horizontal divider header">MES BONS</h2>
-  <div class="ui {{ isDark }} styled big fluid accordion">
+  <div class="ui {{ isDark }} styled big fluid accordion myBons">
     <div class="{{isActiveTab 'creator'}} title" id="creator">
       <i class="dropdown icon"></i>
-      Créateur·rice
+      Créateur
     </div>
     <div class="{{isActiveTab 'creator'}} content">
       {{> created}}
     </div>
     <div class="{{isActiveTab 'donor'}} title" id="donor">
       <i class="dropdown icon"></i>
-      Donneur·se
+      Donneur
     </div>
     <div class="{{isActiveTab 'donor'}} content">
       {{> donated}}
     </div>
     <div class="{{isActiveTab 'receiver'}} title" id="receiver">
       <i class="dropdown icon"></i>
-      Receveur·se
+      Receveur
     </div>
     <div class="{{isActiveTab 'receiver'}} content">
       {{> received}}
